@@ -1,9 +1,9 @@
 package ita3.jparelations.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Town {
@@ -17,6 +17,9 @@ public class Town {
     private String mayour;
     private int schools;
 
+    @OneToMany(mappedBy = "town", cascade = CascadeType.ALL , fetch = FetchType.LAZY)
+    Set<Citizen> citizens;
+
     public Town() {
     }
 
@@ -25,6 +28,10 @@ public class Town {
         this.zipCode = zipCode;
         this.mayour = mayour;
         this.schools = schools;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getName() {
@@ -58,4 +65,6 @@ public class Town {
     public void setSchools(int schools) {
         this.schools = schools;
     }
+
+
 }

@@ -16,6 +16,9 @@ public class Citizen {
     @ManyToOne  // owner side
     Address address;
 
+    @ManyToOne
+    Town town;
+
     public Citizen() {
     }
 
@@ -32,6 +35,15 @@ public class Citizen {
         this.email = email;
         this.phone = phone;
         this.address = address;
+    }
+
+    public Citizen(String firstName, String lastName, String email, int phone, Address address, Town town) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phone = phone;
+        this.address = address;
+        this.town = town;
     }
 
     public String getFirstName() {
@@ -72,5 +84,9 @@ public class Citizen {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public Town getTown() {
+        return town;
     }
 }
