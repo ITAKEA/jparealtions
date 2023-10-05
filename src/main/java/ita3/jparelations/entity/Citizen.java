@@ -89,4 +89,21 @@ public class Citizen {
     public Town getTown() {
         return town;
     }
+
+    public void setTown(Town town) {
+        this.town = town;
+    }
+
+    @Override
+    public String toString() {
+        return "Citizen{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", phone=" + phone +
+                ", address=" + address +
+                ", town=" + town +
+                '}';
+    }
 }

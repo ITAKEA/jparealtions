@@ -10,9 +10,11 @@ public class Town {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
+    @Column(unique = true)
     private String name;
+
     private int zipCode;
     private String mayour;
     private int schools;
@@ -30,7 +32,7 @@ public class Town {
         this.schools = schools;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

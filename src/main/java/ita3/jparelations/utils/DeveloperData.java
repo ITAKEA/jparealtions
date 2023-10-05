@@ -39,18 +39,13 @@ public class DeveloperData implements ApplicationRunner {
         a1.addCitizen(citizen1);
         a1.addCitizen(citizen2);
 
-        System.out.println(a1.getCitizens().get(0).getTown().getName());
+        townRepository.save(t1);    // Save the city
         addressRepository.save(a1); //Save the address
-        //System.out.println(a1.getId());
-        //addressService.printFullAddressInfo(a1.getId(), true);
-       //List<Citizen> c1 = citizenRepository.findAll();
-       // System.out.println(c1);
 
-/*      System.out.println("------- Select statements starts here ------------");
-        Address address_1 = addressRepository.findById(a1.getId()).get();
-        System.out.println(address_1.getStreet());
-        System.out.println("Press Enter to continue");
-        System.in.read(); //This will block so you have time to read the DEBUG statements**
-        System.out.println("Citizens: " + address_1.getCitizens().size());  */
+        List<Citizen> citizensInLyngbyId = citizenRepository.findCitizenByTownId(t1.getId());
+        List<Citizen> citizensInLyngbyName = citizenRepository.findCitizenByTownName(t1.getName());
+
+        System.out.println(citizensInLyngbyId);
+        System.out.println(citizensInLyngbyName);
     }
 }
